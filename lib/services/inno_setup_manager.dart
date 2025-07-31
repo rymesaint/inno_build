@@ -156,7 +156,6 @@ class InnoSetupManager {
     final process = await Process.start(
       innoCompilerPath,
       verbose ? args.sublist(1) : args,
-      runInShell: true,
       mode: verbose ? ProcessStartMode.inheritStdio : ProcessStartMode.normal,
     );
     return process.exitCode;
@@ -178,7 +177,7 @@ class InnoSetupManager {
     final process = await Process.start(
       'cmd',
       args,
-      mode: quiet ? ProcessStartMode.inheritStdio : ProcessStartMode.normal,
+      mode: verbose ? ProcessStartMode.inheritStdio : ProcessStartMode.normal,
     );
 
     return await process.exitCode;

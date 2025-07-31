@@ -60,7 +60,7 @@ Future<void> main(List<String> arguments) async {
   final flutterBuilder = FlutterBuilder(buildMode, verbose: verbose);
   final innoSetupManager =
       InnoSetupManager(buildMode, verbose: verbose, quiet: quiet);
-  final spinner = CliSpin();
+  final spinner = CliSpin(isSilent: quiet || verbose);
 
   final appLogic = InnoBuild(
     argResults: argResults,
