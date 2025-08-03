@@ -1,3 +1,12 @@
+## [Unreleased]
+
+### Added
+- `--skip-flutter-build` flag to skip Flutter build process and use existing build artifacts. #52
+
+### Changed
+- Improve Windows compability for process execution.
+- Cleanup logic handling spinner suppression.
+
 ## 0.3.0
 
 ### Changed
