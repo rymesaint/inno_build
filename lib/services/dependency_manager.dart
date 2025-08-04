@@ -28,7 +28,7 @@ class DependencyManager {
       final process = await Process.start(
         'curl',
         ['-L', '-s', vcRedistUrl, '-o', vcRedistPath],
-        runInShell: true,
+        mode: verbose ? ProcessStartMode.inheritStdio : ProcessStartMode.normal,
       );
       return process.exitCode;
     }
@@ -45,7 +45,6 @@ class DependencyManager {
       final process = await Process.start(
         'curl',
         ['-L', innoSetupUrl, '-o', innoSetupInstallerPath],
-        runInShell: true,
         mode: verbose ? ProcessStartMode.inheritStdio : ProcessStartMode.normal,
       );
       return process.exitCode;

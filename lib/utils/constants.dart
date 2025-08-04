@@ -82,6 +82,7 @@ Options (for generate command):
   -a, --app-id              Generate a new InnoSetup AppID.
       --release             Generate the application in release mode (default).
   -d, --debug               Generate the application in debug mode.
+      --skip-flutter-build  Skip the Flutter build step.
 
 Global Options:
   -h, --help                Show this help message.

@@ -37,6 +37,6 @@ repos:
         types: [dart]
       - id: check-changelog
         name: Check valid changelog current version
-        entry: ./.hooks/check_changelog.sh
+        entry: bash ./.hooks/check_changelog.sh
         language: system
         types: [dart]

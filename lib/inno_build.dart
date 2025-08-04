@@ -125,7 +125,9 @@ class InnoBuild {
     await _handleAppId();
     // await _checkAndInstallInnoSetup();
     // await _checkAndDownloadVccRedist();
-    await _buildFlutterApp();
+    if (!argResults['skip-flutter-build']) {
+      await _buildFlutterApp();
+    }
     await _buildInnoSetupScript();
     await _compileInnoSetupScript();
   }

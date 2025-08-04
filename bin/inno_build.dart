@@ -24,6 +24,7 @@ Future<void> main(List<String> arguments) async {
         abbr: 'd', help: 'Generate the application in debug mode.')
     ..addFlag('install-inno',
         abbr: 'i', help: 'Install Inno Setup if not present.')
+    ..addFlag('skip-flutter-build', help: 'Skip the Flutter build step.')
     ..addFlag('verbose', abbr: 'v', help: 'Enable verbose output.')
     ..addFlag('quiet', abbr: 'q', help: 'Suppress output (quiet mode).')
     ..addFlag('help', abbr: 'h', help: 'Show this help message.')
@@ -59,7 +60,7 @@ Future<void> main(List<String> arguments) async {
   final flutterBuilder = FlutterBuilder(buildMode, verbose: verbose);
   final innoSetupManager =
       InnoSetupManager(buildMode, verbose: verbose, quiet: quiet);
-  final spinner = CliSpin();
+  final spinner = CliSpin(isSilent: quiet);
 
   final appLogic = InnoBuild(
     argResults: argResults,
