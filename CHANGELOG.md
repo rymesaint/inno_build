@@ -1,7 +1,7 @@
-## [Unreleased]
+## 0.4.0
 
 ### Added
-- `--skip-flutter-build` flag to skip Flutter build process and use existing build artifacts. #52
+- `--skip-flutter-build` flag to skip Flutter build process and use existing build artifacts. [#52](https://github.com/izzalDev/inno_build/pull/52)
 
 ### Changed
 - Improve Windows compability for process execution.
