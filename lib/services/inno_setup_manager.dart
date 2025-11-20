@@ -93,7 +93,7 @@ class InnoSetupManager {
       )
       ..addSetup(
         key: 'UninstallDisplayIcon',
-        value: '${Inno.app}\\${Config.execName}',
+        value: '"${Inno.app}\\${Config.execName}"',
       )
       ..addSetup(
         key: 'UninstallDisplayName',
@@ -105,15 +105,15 @@ class InnoSetupManager {
       )
       ..addSetup(
         key: 'WizardImageFile',
-        value: join(assetsPath!, 'WizImage.bmp'),
+        value: '"${join(assetsPath!, 'WizImage.bmp')}"',
       )
       ..addSetup(
         key: 'WizardSmallImageFile',
-        value: join(assetsPath!, 'WizSmallImage.bmp'),
+        value: '"${join(assetsPath!, 'WizSmallImage.bmp')}"',
       )
       ..addSetup(
         key: 'SetupIconFile',
-        value: join(assetsPath!, 'SetupIcon.ico'),
+        value: '"${join(assetsPath!, 'SetupIcon.ico')}"',
       )
       ..addSetup(
         key: 'PrivilegesRequiredOverridesAllowed',
@@ -136,7 +136,7 @@ class InnoSetupManager {
     if (File('LICENSE').existsSync()) {
       generator.addSetup(
         key: 'LicenseFile',
-        value: join(Directory.current.path, 'LICENSE'),
+        value: '"${join(Directory.current.path, 'LICENSE')}"',
       );
     }
 
@@ -166,8 +166,6 @@ class InnoSetupManager {
   /// The installer will be run in silent mode and will not restart the computer.
   Future<int> installInnoSetup() async {
     final args = [
-      '/c',
-      innoSetupInstallerPath,
       '/VERYSILENT',
       '/SUPPRESSMSGBOXES',
       '/NORESTART',
@@ -175,7 +173,7 @@ class InnoSetupManager {
     ];
 
     final process = await Process.start(
-      'cmd',
+      innoSetupInstallerPath,
       args,
       mode: verbose ? ProcessStartMode.inheritStdio : ProcessStartMode.normal,
     );
